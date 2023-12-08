@@ -2,7 +2,7 @@
 
 namespace UserCRUD.Models.Users
 {
-    public class Model
+    public class User
     {
         public Guid Id { get; set; }
         public string FirstName { get; set; }
