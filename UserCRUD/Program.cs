@@ -1,3 +1,8 @@
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using UserCRUD.Brokers.Storages;
+using UserCRUD.Services.Foundations.Users;
 
 namespace UserCRUD
 {
@@ -13,6 +18,8 @@ namespace UserCRUD
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+            builder.Services.AddDbContext<IStorageBroker, StorageBroker>();
+            builder.Services.AddTransient<IUserService, UserService>();
 
             var app = builder.Build();
 
